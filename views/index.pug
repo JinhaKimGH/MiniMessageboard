@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div(class="heading-container")
+    h4(class="heading") Clubs 
+
+  dl
+    each club in clubs 
+      a(class="link" href=club.url) 
+        div(class='clubs') 
+          div(class='club-title') #{club.name}
+            span(class='subtext')  • #{club.members.length} Members
+          span(class='subtext') #{club.desc} 
+
+
+    else 
+      p There are no clubs 
+  

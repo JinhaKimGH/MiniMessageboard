@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    div(class="heading-container")
+        h4(class="heading") #{club.name}
+        p(class="description") #{club.desc}
+
+    div(class="request-container")
+        if msg
+            p(class="request-element") #{msg}

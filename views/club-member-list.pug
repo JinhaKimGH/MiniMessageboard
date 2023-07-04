@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    div(class="heading-container")
+        h4(class="heading") #{club.name} Member List
+
+    div(class="members")
+        if club.members.length
+            each member in club.members
+                dt
+                    if owner == member
+                        a #{member} (Owner)
+
+                    else 
+                        a #{member}
+                dd

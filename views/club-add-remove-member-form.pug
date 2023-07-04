@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+    div(class="heading-container")
+        h4(class="heading") #{title}
+    
+    form(method='POST' action='')
+        h4(class="heading1") #{title}
+        div.form-group 
+            input#username.form-control(class="input", type='text', placeholder='Username' name='username' required='true')
+        if errors 
+            ul(class="error")
+                for error in errors
+                    li(class='error')!= error.msg
+        button.btn.btn-primary(type='submit') Submit
+

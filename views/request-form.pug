@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div(class="heading-container")
+        h4(class="heading") Manage Requests
+
+  form(method='POST' action='')
+
+    div.form-group
+      h4(class="heading1") #{title}
+      select#username.form-control(class="select-input" type='select', placeholder='Select Username' name='username' required='true' )
+        option(value="" selected disabled hidden) Choose Here
+        for username in req
+            option(value=username) #{username}
+    if errors 
+      ul(class="error")
+          for error in errors
+              li(class='error')!= error.msg
+    button.btn.btn-primary(type='submit') Accept Request
+

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    div(class="heading-container")
+        h4(class="heading") #{club.name}
+        p(class="description")  #{club.desc}
+
+    div(class="request-container")
+        p(class="request-element") #{msg}
+
+        a(href=club.url+'/request' class="btn btn-primary request-element") Request to be a member

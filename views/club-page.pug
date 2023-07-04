@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    div(class="heading-container")
+        h4(class="heading") #{club.name} Club Page
+        p(class="description")  #{club.desc}
+
+    div(class="messages")
+        form(method='POST' action='' class="send-message")
+            div.form-group 
+                input#message.form-control(class="input" type='text', placeholder='Whats on your mind?' name='message' required='true' value=(undefined===message ? '' : message.text))
+            
+            div.flex
+                if errors 
+                    ul(class="error")
+                        for error in errors
+                            li(class='error')!= error.msg
+                button.btn.btn-primary(type='submit' class="send-msg") Post
+
+        if messages.length
+            each message in messages
+                div(class="message")
+                    dt
+                        p(class="user") #{message.user} 
+                        p(class="date") #{message.date_formatted}
+                        p(class="post") #{message.text}  
+                    dd

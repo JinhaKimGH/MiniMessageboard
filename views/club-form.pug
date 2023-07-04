@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+    div(class="heading-container")
+        h4(class="heading") Create Club
+    
+    form(method='POST' action='')
+        h4(class="heading1") #{title}
+        div.form-group 
+            input#name.form-control(class="input" type='text', placeholder='Club Name' name='name' required='true')
+        div.form-group 
+            input#description.form-control(class="input", type='description', placeholder='Description' name='description' required='true')
+        if errors 
+            ul(class="error")
+                for error in errors
+                    li(class='error')!= error.msg
+        button.btn.btn-primary(type='submit') Submit
+

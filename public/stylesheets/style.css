@@ -1,0 +1,297 @@
+:root {
+  --background: #17181C;
+  --light-background: #1E1F23;
+  --button-hover: #26272D;
+  --button-color: #1D282C;
+  --link_color: #4684F6;
+  --text_color: white;
+  --border-color: #262C2E;
+  --side-text-color: #B3B4B8;
+}
+
+* {
+  background-color: var(--background);
+}
+
+body {
+  font-family: "Haas Grot Text R Web","Helvetica Neue",Helvetica,Arial,sans-serif;;
+  color: var(--text_color);
+}
+
+.link:hover{
+  text-decoration: none;
+}
+
+.layout-a, .layout-b {
+  display: flex;
+  justify-content: center;
+  color: var(--side-text-color);
+  font-size: 20px;
+  width: 100%;
+  padding: 1vw 0;
+  background-color: var(--light-background);
+}
+
+.col-sm-2{
+  border-right: 1px var(--border-color) solid;
+  height: 100vh;
+  padding: 0;
+  margin-right: auto;
+  background-color: var(--light-background);
+}
+
+.layout-a > span{
+  background-color: #ffffff00;
+  position: relative;
+  left: -8px;
+}
+
+.layout-b > span{
+  max-height: 20px;
+  width: 20px;
+  background-color: #ffffff00;
+  position: relative;
+  top: 3px;
+  left: -8px;
+}
+
+.layout-a{
+  font-size: 1rem;
+}
+
+.layout-a:hover{
+  background-color: var(--button-hover)
+}
+
+.layout-a:hover > img{
+  background-color: var(--button-hover)
+}
+
+.layout-a:hover{
+  text-decoration: none;
+  color: var(--link_color)
+}
+
+.layout-b:hover{
+  text-decoration: none;
+  color: var(--side-text-color);
+}
+
+.sidebar-nav {
+  margin: 0.5vw 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+.message{
+  margin-top: 10px;
+  padding: 0;
+}
+
+.clubs, .members, .request-container, .message{
+  border-radius: 16px;
+  color: white;
+  padding: 1rem;
+  background-color: var(--light-background);
+  border: 1px var(--border-color) solid;
+  margin: 1.5rem auto;
+  width: 35rem;
+}
+
+.message > dt, .message > dt > p{
+  background-color: #ffffff00;
+}
+
+.members, .messages{
+  margin-top: 1rem;
+  height: 50rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.members > dt{
+  background-color: #ffffff00;
+  text-align: center;
+  font-weight: 400;
+}
+
+.request-element{
+  text-align: center;
+  width: 50%;
+  margin: 2rem auto;
+}
+
+p.request-element{
+  background-color: #ffffff00;
+}
+
+.clubs:hover{
+  background-color: var(--button-hover);
+}
+
+.heading{
+  margin: 0 1vmin;
+  padding: 1.5rem;
+  background-color: var(--light-background);
+  text-align: center;
+}
+
+.heading-container{
+  border-bottom: 1px var(--border-color) solid;
+  background-color: var(--light-background);
+}
+
+.end-elem{
+  border-bottom: 1px var(--border-color) solid;
+}
+
+.heading1{
+  background-color: #ffffff00;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.club-title{
+  background-color: #ffffff00;
+  font-size: 18px;
+}
+
+.user, .date, .post{
+  font-weight: 400;
+}
+
+.user{
+  margin: 0;
+}
+
+.date{
+  font-size: 0.75rem;
+  color: var(--side-text-color)
+}
+
+.row{
+  justify-content: space-around;
+}
+
+.col-sm-10{
+  max-width: 100%;
+  margin-right: auto;
+  padding: 0;
+}
+
+.subtext{
+  background-color: #ffffff00;
+  color: #848687;
+}
+
+form, label, .form-group{
+  background-color: var(--light-background);
+}
+
+form{
+  border: 1px var(--border-color) solid;
+  margin: 1.5rem auto;
+}
+
+.send-message{
+  max-width: 35rem;
+  min-height: 7.5rem;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.send-message > .form-group > input{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  border-radius: 9999px;
+}
+
+.send-message > .form-group{
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.input{
+  width: 80%;
+  display: block;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #27282E;
+  border: none;
+  border-radius: 16px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+
+.send-msg{
+  float: right;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-right: 0 !important;
+}
+
+.select-input{
+  width: 80%;
+  margin: auto;
+  background-color: #27282E;
+  border: none;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.select-input:hover, .select-input::selection, .select-input:focus{
+  background-color: #27282E;
+}
+
+.input:focus, .input:hover{
+  outline: none;
+  outline-color:  #848687 !important;
+  outline-style: solid !important;
+  background-color: #27282E;
+}
+
+.btn{
+  display: block;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 50px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.form-group{
+  margin-bottom: 2rem;
+}
+
+form{
+  border-radius: 5px;
+  padding: 2rem;
+  width: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 4rem;
+}
+
+.error{
+  color: rgb(218, 33, 33);
+  background-color: #ffffff00;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.description{
+  text-align: center;
+  background-color: #ffffff00;
+}
+
+.flex{
+  display: flex;
+  background-color: #ffffff00;
+  justify-content: space-between;
+}
