@@ -2,7 +2,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-const session = require("express-session");
+const session = require("cookie-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 var cookieParser = require('cookie-parser');
@@ -19,6 +19,7 @@ var app = express();
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = process.env.MONGODBURI;
+console.log(mongoDB)
 
 main().catch((err) => console.log(err));
 async function main() {
