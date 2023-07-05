@@ -19,7 +19,6 @@ var app = express();
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 const mongoDB = process.env.MONGODBURI;
-console.log(mongoDB)
 
 main().catch((err) => console.log(err));
 async function main() {
