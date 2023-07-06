@@ -6,7 +6,8 @@ const MessageSchema = new Schema({
     text: {type: String, required: true},
     user:  {type: String, required: true},
     added: {type: Date, requried: true},
-    club_id: {type: Schema.Types.ObjectId, ref: "Club", required: true}
+    club_id: {type: Schema.Types.ObjectId, ref: "Club", required: true},
+    youtube_link: {type: String}
 });
 
 MessageSchema.virtual("date_formatted").get(function () {

@@ -9,6 +9,8 @@ block content
         form(method='POST' action='' class="send-message")
             div.form-group 
                 input#message.form-control(class="input" type='text', placeholder='Whats on your mind?' name='message' required='true' value=(undefined===message ? '' : message.text))
+            div.form-group 
+                input#link.form-control(class="input" type='link', placeholder='YouTube Link (ignores invalid links)' name='link')
             
             div.flex
                 if errors 
@@ -24,4 +26,6 @@ block content
                         p(class="user") #{message.user} 
                         p(class="date") #{message.date_formatted}
                         p(class="post") #{message.text}  
+                        if message.youtube_link
+                            iframe(width="100%" height="400px" src=message.youtube_link)
                     dd

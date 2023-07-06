@@ -45,5 +45,15 @@ exports.user_sign_up_post = [
 ]
 
 exports.user_log_in_get = asyncHandler(async (req, res, next) => {
-    res.render('log-in-form', {title: "Log In"});
+    if (req.session.messages){
+        res.render('log-in-form', {title: "Log In", errors: [{msg: req.session.messages[req.session.messages.length - 1], }]});
+    }
+
+    else{
+        res.render('log-in-form', {title: "Log In",});
+    }
+})
+
+exports.guest_log_in_get = asyncHandler(async (req, res, next) => {
+    res.render('guest-log-in-form', {title: "Log In",});
 })

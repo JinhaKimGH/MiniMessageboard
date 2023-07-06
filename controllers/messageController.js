@@ -12,6 +12,14 @@ const unicodeDecode = (text) => {
     return decoded;
   };
 
+function matchYoutubeUrl(url) {
+    var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    if(url.match(p)){
+        return url.match(p)[1];
+    }
+    return false;
+}
+
 exports.message_create_get = asyncHandler(async (req, res, next) => {
     const club = await Club.findById(req.params.id).exec();
 
@@ -24,7 +32,7 @@ exports.message_create_get = asyncHandler(async (req, res, next) => {
 
     if(req.user) {
         if (club.members.includes(req.user.username)){
-            const messages = await Message.find({ "club_id": new ObjectID(req.params.id) }, {text: 1, user: 1, added: 1}).sort({added: -1}).exec();
+            const messages = await Message.find({ "club_id": new ObjectID(req.params.id) }, {text: 1, user: 1, added: 1, youtube_link: 1}).sort({added: -1}).exec();
             res.render("club-page", {club: club, user: req.user ? unicodeDecode(req.user.username) : req.user, messages: messages ? messages : []});
         } else {
             res.render("club-non-member", {club: club, user: req.user ? unicodeDecode(req.user.username) : req.user, msg: "You are not a member of this club so you can not view the chat log."});
@@ -36,10 +44,10 @@ exports.message_create_get = asyncHandler(async (req, res, next) => {
 
 exports.message_create_post = [
     body("message", "Message must not be less than three characters.").trim().isLength({min: 3}).escape(),
-
+    body("link"),
     asyncHandler(async (req, res, next) => {
         const errors = validationResult(req);
-        const message = new Message({text: unicodeDecode(req.body.message), user: req.user ? unicodeDecode(req.user.username) : req.user, added: new Date(), club_id: req.params.id});
+        const message = new Message({text: unicodeDecode(req.body.message), youtube_link: "https://www.youtube.com/embed/" + matchYoutubeUrl(req.body.link), user: req.user ? unicodeDecode(req.user.username) : req.user, added: new Date(), club_id: req.params.id});
         const club = await Club.findById(req.params.id).exec();
 
         if (club === null) {
@@ -50,7 +58,7 @@ exports.message_create_post = [
         } 
 
         if(!errors.isEmpty()){
-            const messages = await Message.find({ "club_id": new ObjectID(req.params.id) }, {text: 1, user: 1, added: 1}).sort({added: -1}).exec();
+            const messages = await Message.find({ "club_id": new ObjectID(req.params.id) }, {text: 1, user: 1, added: 1, youtube_link: 1}).sort({added: -1}).exec();
             res.render("club-page", {club: club, user: req.user ? unicodeDecode(req.user.username) : req.user, errors: errors.array(), messages: messages ? messages : []});
         } else {
             await message.save();

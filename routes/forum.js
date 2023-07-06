@@ -106,17 +106,32 @@ router.post(
     "/log-in",
     passport.authenticate("local", {
       successRedirect: "/",
-      failureRedirect: "/forum/log-in"
+      failureRedirect: "/forum/log-in",
+      failureMessage: true
     })
   );
 
+
+// Guest Login GET
+router.get("/log-in/guest", user_controller.guest_log_in_get);
+
+// Guest Login POST
+router.post(
+  "/log-in/guest",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/forum/log-in",
+    failureMessage: true
+  })
+);
+
 // GET request for logout
 router.get('/log-out', (req, res, next) => {
-    req.logout(function (err) {
+    req.logOut(function (err) {
         if (err){
             return next(err);
         }
-        res.redirect("/");
+        res.redirect("/forum");
     });
 });
 

@@ -7,16 +7,15 @@ block content
     form(method='POST' action='/forum/log-in')
         h4(class="heading1") #{title}
         div.form-group 
-            input#username.form-control(class='input' type='text', placeholder="Username" name='username' required='true' )
+            input#username.form-control(class='input' type='text', placeholder="Username" name='username' required='true' value="Guest")
         div.form-group 
-            input#password.form-control(class='input' type='password', placeholder="Password" name='password' required='true' )
+            input#password.form-control(class='input' type='password', placeholder="Password" name='password' required='true' value="Guest")
         if errors 
             ul(class="error2")
                 for error in errors
                     li(class='error')!= error.msg
 
         button.btn.btn-primary(type='submit') Log In
-        a(href="/forum/log-in/guest" class="layout-c") Log In As Guest
 
 
         

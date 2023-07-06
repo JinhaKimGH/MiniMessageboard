@@ -22,7 +22,7 @@ body {
   text-decoration: none;
 }
 
-.layout-a, .layout-b {
+.layout-a, .layout-b, .layout-c {
   display: flex;
   justify-content: center;
   color: var(--side-text-color);
@@ -67,7 +67,7 @@ body {
   background-color: var(--button-hover)
 }
 
-.layout-a:hover{
+.layout-a:hover, .layout-c:hover{
   text-decoration: none;
   color: var(--link_color)
 }
@@ -294,4 +294,22 @@ form{
   display: flex;
   background-color: #ffffff00;
   justify-content: space-between;
+}
+
+iframe{
+  border: none;
+  box-shadow: 0px 20px 20px -10px #4e4e4e;
+}
+
+.error2{
+  color: rgb(218, 33, 33);
+  background-color: #ffffff00;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.guest{
+  margin-bottom: 1rem;
 }
