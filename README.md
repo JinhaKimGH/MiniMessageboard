@@ -6,7 +6,7 @@ This app utilizes node and express for the routing, and MongoDB to store data.
 
 ## Website
 
-You can access this app [here](https://jinhakimgh.github.io/Basketball-Court-Finder)!
+You can access this app [here](https://minimessageboard-wtww.onrender.com/forum)!
 
 ## License
 
